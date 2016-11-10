@@ -1,0 +1,17 @@
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\AsyncInterceptors.exe.config
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\AsyncInterceptors.exe
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\AsyncInterceptors.pdb
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\Castle.Core.dll
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\Ninject.dll
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\Ninject.Extensions.Interception.dll
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.dll
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\Castle.Core.xml
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\Ninject.xml
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\Ninject.Extensions.Interception.xml
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\bin\Debug\Ninject.Extensions.Interception.DynamicProxy.xml
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\obj\Debug\AsyncInterceptors.exe
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\obj\Debug\AsyncInterceptors.pdb
+D:\Work\WcfAsyncInterceptors\AsyncInterceptors\obj\Debug\AsyncInterceptors.csprojResolveAssemblyReference.cache
+D:\Work\AsyncInterceptors\AsyncInterceptors\bin\Debug\AsyncInterceptors.exe.config
+D:\Work\AsyncInterceptors\AsyncInterceptors\obj\Debug\AsyncInterceptors.exe
+D:\Work\AsyncInterceptors\AsyncInterceptors\obj\Debug\AsyncInterceptors.pdb
