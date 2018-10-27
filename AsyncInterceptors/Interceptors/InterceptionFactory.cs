@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Ninject.Extensions.Interception;
 
-namespace AsyncInterceptors.Factory_Strategy_Pattern
+namespace AsyncInterceptors.Interceptors
 {
-	public class InterceptionFactory : IInterceptionFactory
+    public class InterceptionFactory : IAmInterceptionFactory
 	{
 		private readonly IDictionary<MethodType, IAmInterceptorMethod> _getInterceptorClass;
 
@@ -29,6 +26,7 @@ namespace AsyncInterceptors.Factory_Strategy_Pattern
 				return MethodType.AsyncAction;
 			if (returnType.IsGenericType && returnType.GetGenericTypeDefinition() == typeof(Task<>))
 				return MethodType.AsyncFunction;
+
 			return MethodType.Synchronous;
 		}
 	}

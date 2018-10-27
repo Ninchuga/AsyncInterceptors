@@ -1,54 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ninject;
 using Ninject.Modules;
 
 namespace AsyncInterceptors
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
 		{
-			var modules = new INinjectModule[]
-			{
-				new Ninject()
-			};
-			var kernel = new StandardKernel(modules);
-			var service = kernel.Get<ILibraryService>();
+            var kernel = CreateKernel();
+            var service = kernel.Get<ILibraryService>();
 
-			Book book = new Book()
-			{
-				//Name = "C#",
-				Author = "C. MArtin"
-			};
+            AddBook(service);
 
-			service.AddBook(book);
+            var book = service.GetBook("Refactoring").GetAwaiter().GetResult();
 
-			try
-			{
-				var books = service.GetBooks().GetAwaiter().GetResult();
-
-				if (books.Count != 0)
-				{
-					foreach (var item in books)
-					{
-						Console.WriteLine(item.Name);
-					}
-				}
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.Message);
-				//throw ex;
-			}
-            
-
+            Console.WriteLine(book);
             
             Console.ReadLine();
+        }
 
+        private static StandardKernel CreateKernel()
+        {
+            var modules = new INinjectModule[]
+            {
+                new Ninject()
+            };
+
+            var kernel = new StandardKernel(modules);
+
+            return kernel;
+        }
+
+        private static void AddBook(ILibraryService service)
+        {
+            Book book = new Book()
+            {
+                Name = "Clean Coder",
+                Author = "Robert C. Martin"
+            };
+
+            service.AddBook(book);
         }
     }
 }

@@ -1,55 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace AsyncInterceptors
 {
     public class LibraryService : ILibraryService
     {
-        private readonly List<Book> books = new List<Book>();
-		public async Task AddBook(Book book)
+        private readonly List<Book> _books = new List<Book>();
+
+		public Task AddBook(Book book)
 		{
 			if (string.IsNullOrEmpty(book.Name))
-			{
-				throw new CustomException("zveketeeeee!!!");
-			}
+				throw new ArgumentNullException(nameof(book));
 
-			await Task.Run(() => books.Add(book));
+            _books.Add(book);
+
+			return Task.FromResult(true);
 		}
 
-		//public void AddBook(Book book)
-		//{
-		//	if (string.IsNullOrEmpty(book.Name))
-		//	{
-		//		throw new CustomException("zveketeeeee!!!");
-		//	}
+        public async Task<Book> GetBook(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentNullException(nameof(name));
 
-		//	books.Add(book);
-		//}
+            var book = _books.FirstOrDefault(b => b.Name.Equals(name));
+            if (book == null)
+                throw new CustomException($"Book with name: {name} doesn't exist.");
 
-		//public List<Book> GetBooks()
-		//{
-		//	var bookssss = books;
-		//	if (bookssss.Count.Equals(0))
-		//	{
-		//		throw new CustomException("nemoz biti jedan care");
-		//	}
+            //return Task.FromResult(book);
+            return await Task.Run(() => book);
+        }
 
-		//	return bookssss;
-		//	//return await Task.Run(() => books);
-		//}
-
-
-		public async Task<List<Book>> GetBooks()
+		public Task<List<Book>> GetBooks()
 		{
-			if (books.Count.Equals(0))
-			{
-				throw new CustomException("nemoz biti nula care");
-			}
+			if (_books.Count.Equals(0))
+				throw new CustomException("There are no books.");
 
-			return await Task.Run(() => books);
+			return Task.FromResult(_books);
 		}
 
 	}

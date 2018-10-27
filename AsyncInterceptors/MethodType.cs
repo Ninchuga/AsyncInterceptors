@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AsyncInterceptors
+﻿namespace AsyncInterceptors
 {
-	public enum MethodType
+    public enum MethodType
 	{
 		Synchronous,
 		AsyncAction,

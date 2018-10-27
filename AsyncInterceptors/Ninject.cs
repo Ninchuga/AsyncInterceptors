@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AsyncInterceptors.Factory_Strategy_Pattern;
-using Castle.Core.Logging;
+﻿using System.Collections.Generic;
+using AsyncInterceptors.Interceptors;
 using Ninject.Extensions.Interception.Infrastructure.Language;
 using Ninject.Modules;
 
@@ -15,11 +10,9 @@ namespace AsyncInterceptors
         public override void Load()
         {
 			var libraryService = Bind<ILibraryService>().To<LibraryService>();
-			libraryService.Intercept().With<ExceptionInterceptor>().InOrder(1);
-			libraryService.Intercept().With<LoggerInterceptor>().InOrder(2);
+			libraryService.Intercept().With<ExceptionInterceptor>().InOrder(1);  // if you have multiple interceptors you can specify their order
 
-			Bind<IInterceptionFactory>().To<InterceptionFactory>();
-	        Bind<ILogger>().To<LoggerClass>();
+			Bind<IAmInterceptionFactory>().To<InterceptionFactory>();
 	        Bind<IDictionary<MethodType, IAmInterceptorMethod>>().ToProvider<MyInterceptorProvider>();
         }
     }

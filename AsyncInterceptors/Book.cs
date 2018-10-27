@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AsyncInterceptors
+﻿namespace AsyncInterceptors
 {
-    public class Book
+    public class Book : BaseResponse
     {
         public string Name { get; set; }
-        public string Author { get; set; }   
+        public string Author { get; set; }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}, {nameof(Name)}: {Name}, {nameof(Author)}: {Author}";
+        }
     }
 }

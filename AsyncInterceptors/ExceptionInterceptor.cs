@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using AsyncInterceptors.Factory_Strategy_Pattern;
-using Castle.Core.Logging;
+﻿using AsyncInterceptors.Interceptors;
 using Ninject.Extensions.Interception;
 
 namespace AsyncInterceptors
 {
-	public class ExceptionInterceptor : IInterceptor
+    public class ExceptionInterceptor : IInterceptor
 	{
-		private readonly IInterceptionFactory _factory;
-		public ExceptionInterceptor(IInterceptionFactory factory)
+		private readonly IAmInterceptionFactory _factory;
+		public ExceptionInterceptor(IAmInterceptionFactory factory)
 		{
 			_factory = factory;
 		}

@@ -1,8 +1,8 @@
 ﻿using Ninject.Extensions.Interception;
 
-namespace AsyncInterceptors.Factory_Strategy_Pattern
+namespace AsyncInterceptors.Interceptors
 {
-	public interface IInterceptionFactory
+	public interface IAmInterceptionFactory
 	{
 		IAmInterceptorMethod ExecuteInterceptionMethod(IInvocation invocation);
 	}

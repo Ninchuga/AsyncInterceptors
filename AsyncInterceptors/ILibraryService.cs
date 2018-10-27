@@ -7,11 +7,6 @@ namespace AsyncInterceptors
     {
 		Task AddBook(Book book);
 		Task<List<Book>> GetBooks();
-
-
-		//void AddBook(Book book);
-
-		//List<Book> GetBooks();
-
+        Task<Book> GetBook(string name);
 	}
 }
