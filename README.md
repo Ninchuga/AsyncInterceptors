@@ -1,2 +1,2 @@
-# AsyncInterceptors
-Async Exception Interceptors and Logging
+# Async Interceptors
+Async Exception Interceptors example used with Ninject container
